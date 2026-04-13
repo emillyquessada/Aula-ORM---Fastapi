@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Cursos</title>
+</head>
+<body style="font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+    <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); width: 100%; max-width: 400px;">
+        
+        <h1 style="color: #333; text-align: center; margin-bottom: 25px; font-size: 24px;">Cadastrar Cursos</h1>
+        
+        <form action="/cursos" method="post">
+            <p style="margin-bottom: 20px;">
+                <label for="nome" style="display: block; margin-bottom: 8px; color: #555; font-weight: 600;"> Nome:</label>
+                <input type="text" name="nome" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; outline: none;">
+            </p>
+            
+            <p style="margin-bottom: 20px;">
+                <label for="carga_hr" style="display: block; margin-bottom: 8px; color: #555; font-weight: 600;"> Carga Horária:</label>
+                <input type="number" id="carga_hr" name="carga_horaria" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; outline: none;">
+            </p>
+            
+            <p style="margin-bottom: 20px;">
+                <label for="descricao" style="display: block; margin-bottom: 8px; color: #555; font-weight: 600;"> Descrição:</label>
+                <input type="text" id="descricao" name="descricao" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; outline: none;">
+            </p>
+            
+            <p style="margin-top: 30px;">
+                <button type="submit" style="width: 100%; padding: 14px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">Cadastrar</button>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>
