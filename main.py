@@ -62,3 +62,18 @@ def listar_cursos(
         "listar_cursos.html",
         {"request": request, "cursos":cursos}
     )
+
+#Rota para deletar
+
+@app.post("/cursos/{id}/deletar")
+def deletar_curso(
+    id: int, 
+    db: Session = Depends(get_db)
+):
+    curso = db.query(Curso).get(id)
+
+    if curso:
+        db.delete(curso)
+        db.commit()
+
+    return RedirectResponse(url="/listar_cursos", status_code=303)
