@@ -34,10 +34,31 @@ def criar_curso(
     descricao: str = Form(...),
     db: Session = Depends(get_db)
 ):
-    
-    #cdastrar o curso no banco
+    #cadastrar o curso no banco
     novo_curso = Curso(nome=nome, carga_hr=carga_hr, descricao=descricao)
     db.add(novo_curso)
     db.commit()
 
-    return RedirectResponse(url="/", status_code=303)
+    return RedirectResponse(url="/cursos", status_code=303)
+
+
+@app.get("/")
+def exibir_cadastro(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "index.html",
+        {"request": request}
+    )
+
+@app.get("/listar_cursos")
+def listar_cursos(
+    request: Request,
+    db: Session = Depends(get_db)
+    ):
+
+    cursos = db.query(Curso).all()
+    return templates.TemplateResponse(
+        request,
+        "listar_cursos.html",
+        {"request": request, "cursos":cursos}
+    )
